@@ -9,13 +9,13 @@ function LearnerCard({name, surname, course}) {
       <Card.Body>
         <blockquote className="blockquote mb-0">
           <p style={{ textAlign: "justify" }}>
-            Surname: <span className="purple"> John</span>
+            Surname: <span className="purple">{surname}</span>
           </p>
           <p style={{ textAlign: "justify" }}>
-            Name: <span className="purple"> Doe</span>
+            Name: <span className="purple">{name}</span>
           </p>
           <p style={{ textAlign: "justify" }}>
-            Course: <span className="purple"> Tomatoes growing</span>
+            Course: <span className="purple">{course}</span>
           </p>
           <p style={{ textAlign: "justify" }}>
             Evolution: <span className="purple"> 6/10 starts</span>
