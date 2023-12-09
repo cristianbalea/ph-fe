@@ -155,7 +155,7 @@ button:focus {
 }
 
 .logo {
-  height: 6.0em !important;
+  height: 2.0em !important;
   width: 8.0em !important;
 }
 
@@ -255,8 +255,8 @@ button:focus {
   position: fixed !important;
   background: url('Assets/fundal.png') no-repeat center center fixed;
   background-size: cover !important;
-  width: 100%;
-  height: 100%;
+  width: 110%;
+  height: 110%;
   z-index: -1; /* Sets the stack order to be behind other elements */
 }
 
@@ -267,7 +267,7 @@ button:focus {
 .home-section {
   position: relative;
   z-index: -1;
-  background-image: var(--image-gradient), url(./Assets/home-bg.jpg);
+  /*background-image: var(--image-gradient), url(./Assets/home-bg.jpg);*/
   background-position: top center;
   background-repeat: no-repeat;
   padding-bottom: 30px !important;
@@ -276,7 +276,7 @@ button:focus {
 
 .home-content {
   padding: 9rem 0 2rem !important;
-  color: whitesmoke;
+  color: #2a3a2d;
   text-align: left;
 }
 
@@ -301,7 +301,7 @@ button:focus {
 }
 .Typewriter__cursor {
   font-size: 2.4em !important;
-  color: #43923a !important;
+  color: #045918 !important;
 }
 
 @media (max-width: 767px) {
@@ -334,7 +334,7 @@ button:focus {
 }
 
 .home-about-description {
-  color: white !important;
+  color: #43923a !important;
   padding-top: 100px !important;
   padding-bottom: 20px !important;
   text-align: center;

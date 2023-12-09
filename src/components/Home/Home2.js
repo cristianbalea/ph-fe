@@ -1,6 +1,6 @@
 import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
-import myImg from "../../Assets/avatar.svg";
+import myImg from "../../Assets/grup1-01.svg";
 import Tilt from "react-parallax-tilt";
 import {
   AiFillGithub,
@@ -16,15 +16,15 @@ function Home2() {
         <Row>
           <Col md={8} className="home-about-description">
             <h1 style={{ fontSize: "2.6em" }}>
-              LET ME <span className="purple"> INTRODUCE </span> MYSELF
+
+              ALLOW US <span className="purple"> INTRODUCE </span> OURSELVES
             </h1>
             <p className="home-about-body">
-             SALUTARE
+             HELLO
               <br />
-              <br />I am fluent in classics like
-              <i>
-                <b className="purple"> C++, Javascript and Go. </b>
-              </i>
+              <br />We are dedicated to creating employment opportunities
+                for individuals with disabilities, providing comprehensive training to build your career.
+
               <br />
               <br />
               My field of Interest's are building new &nbsp;
