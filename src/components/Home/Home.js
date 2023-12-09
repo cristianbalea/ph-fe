@@ -7,17 +7,14 @@ import Type from "./Type";
 
 function Home() {
   return (
-    <section>
-      <Container fluid className="home-section" id="home">
+    <div style={{color:"#d0d0d0"}}>
+      <Container fluid className="home-section no-padding" id="home">
         <Particle />
         <Container className="home-content">
           <Row>
             <Col md={7} className="home-header">
-              <h1 style={{ paddingBottom: 15 }} className="heading">
+              <h1 style={{ paddingBottom: 15, position: "relative" }} className="heading">
                 Empowering Abilities{" "}
-                {/*<span className="wave" role="img" aria-labelledby="wave">*/}
-                {/*  👋🏻*/}
-                {/*</span>*/}
               </h1>
 
               <h1 className="heading-name">
@@ -25,12 +22,12 @@ function Home() {
                 <strong className="main-name"> Matter Here!</strong>
               </h1>
 
-              <div style={{ padding: 40, textAlign: "left" }}>
+              <div style={{ padding: 40, textAlign: "left", position: "relative" }}>
                 <Type />
               </div>
             </Col>
 
-            <Col md={5} style={{ paddingBottom: 20 }}>
+            <Col md={5} style={{ paddingBottom: 20, position: "relative" }}>
               <img
                   src={homeLogo}
                   alt="home pic"
@@ -42,7 +39,7 @@ function Home() {
         </Container>
       </Container>
       <Home2 />
-    </section>
+    </div>
   );
 }
 
