@@ -14,9 +14,9 @@ html {
   --imp-text-color: #43923a;
 }
 
-/*.purple {*/
-/*  color: var(--imp-text-color) !important;*/
-/*}*/
+.purple {
+  color: var(--imp-text-color) !important;
+}
 
 button:focus {
   box-shadow: none !important;
