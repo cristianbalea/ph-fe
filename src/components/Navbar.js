@@ -59,7 +59,7 @@ function NavBar() {
             {isAuthenticated && <Nav.Item>
               <Nav.Link
                 as={Link}
-                to="/about"
+                to="/learners"
                 onClick={() => updateExpanded(false)}
               >
                 <AiOutlineUser style={{ marginBottom: "2px" }} /> Learners
@@ -69,7 +69,7 @@ function NavBar() {
             {isAuthenticated && <Nav.Item>
               <Nav.Link
                 as={Link}
-                to="/project"
+                to="/jobs"
                 onClick={() => updateExpanded(false)}
               >
                 <AiOutlineFundProjectionScreen
@@ -82,7 +82,7 @@ function NavBar() {
             {isAuthenticated && <Nav.Item>
               <Nav.Link
                 as={Link}
-                to="/resume"
+                to="/addjob"
                 onClick={() => updateExpanded(false)}
               >
                 <CgFileDocument style={{ marginBottom: "2px" }} /> Add job

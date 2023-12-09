@@ -2,7 +2,7 @@ import React from "react";
 import Card from "react-bootstrap/Card";
 import { ImPointRight } from "react-icons/im";
 
-function AboutCard() {
+function LearnerCard() {
   return (
     <Card className="quote-card-view">
       <Card.Body>
@@ -41,4 +41,4 @@ function AboutCard() {
   );
 }
 
-export default AboutCard;
+export default LearnerCard;

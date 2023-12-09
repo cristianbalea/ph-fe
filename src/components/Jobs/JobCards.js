@@ -4,9 +4,9 @@ import Button from "react-bootstrap/Button";
 import { CgWebsite } from "react-icons/cg";
 import { BsGithub } from "react-icons/bs";
 
-function ProjectCards(props) {
+function JobCards(props) {
   return (
-    <Card className="project-card-view">
+    <Card className="job-card-view">
       <Card.Img variant="top" src={props.imgPath} alt="card-img" />
       <Card.Body>
         <Card.Title>{props.title}</Card.Title>
@@ -37,4 +37,4 @@ function ProjectCards(props) {
     </Card>
   );
 }
-export default ProjectCards;
+export default JobCards;

@@ -451,7 +451,7 @@ button:focus {
   color: #2a3a2d !important;
 }
 /* --------- */
-/* Projects */
+/* Jobs */
 /* --------- */
 .project-section {
   position: relative !important;
@@ -468,7 +468,7 @@ button:focus {
   height: auto !important;
 }
 
-.project-card-view {
+.job-card-view {
   box-shadow: 0 4px 5px 3px #045918 !important;
   color: white !important;
   background-color: transparent !important;
@@ -476,7 +476,7 @@ button:focus {
   transition: all 0.5s ease 0s !important;
   height: 100% !important;
 }
-.project-card-view:hover {
+.job-card-view:hover {
   transform: scale(1.02) !important;
   overflow: hidden !important;
   box-shadow: 0 4px 4px 5px #045918 !important;
@@ -548,7 +548,7 @@ button:focus {
 }
 
 /* --------- */
-/* About */
+/* Learners */
 /* --------- */
 
 .about-section {
@@ -608,7 +608,7 @@ button:focus {
   }
 }
 /* --------- */
-/* Resume */
+/* AddJob */
 /* --------- */
 
 .resume-section {
