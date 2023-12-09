@@ -2,7 +2,8 @@ import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import Particle from "../Particle";
 import LearnerCard from "./LearnerCard";
-import laptopImg from "../../Assets/about.png";
+import './Learners.css'
+import johndoe from "../../Assets/johndoe.jpg"
 
 function Learners() {
   return (
@@ -29,7 +30,7 @@ function Learners() {
                 style={{ paddingTop: "120px", paddingBottom: "50px" }}
                 className="about-img"
               >
-                <img src={laptopImg} alt="about" className="img-fluid" />
+                <img src={johndoe} alt="about" className="learner-img" />
               </Col>
             </Row>
           </Container>
