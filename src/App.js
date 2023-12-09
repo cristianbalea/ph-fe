@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, createContext } from "react";
 import Preloader from "../src/components/Pre";
 import Navbar from "./components/Navbar";
 import Home from "./components/Home/Home";
@@ -6,6 +6,8 @@ import About from "./components/About/About";
 import Projects from "./components/Projects/Projects";
 import Footer from "./components/Footer";
 import Resume from "./components/Resume/ResumeNew";
+import Login from "./components/Login/Login"
+
 import {
   BrowserRouter as Router,
   Route,
@@ -17,12 +19,15 @@ import "./style.css";
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 
+export const AppContext = createContext();
+
 function App() {
-  const [load, upadateLoad] = useState(true);
+  const [load, updateLoad] = useState(true);
+  const [isAuthenticated, setIsAuthenticated] = useState(false)
 
   useEffect(() => {
     const timer = setTimeout(() => {
-      upadateLoad(false);
+      updateLoad(false);
     }, 1200);
 
     return () => clearTimeout(timer);
@@ -32,16 +37,24 @@ function App() {
     <Router>
       <Preloader load={load} />
       <div className="App" id={load ? "no-scroll" : "scroll"}>
+        <AppContext.Provider  value = {{
+          isAuthenticated,
+          setIsAuthenticated
+        }}>
         <Navbar />
         <ScrollToTop />
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/project" element={<Projects />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/resume" element={<Resume />} />
-          <Route path="*" element={<Navigate to="/"/>} />
-        </Routes>
+        <div className="content">
+          <Routes>
+            <Route path="/login" element = {<Login />} />
+            <Route path="/" element={<Home />} />
+            <Route path="/project" element={<Projects />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/resume" element={<Resume />} />
+            <Route path="*" element={<Navigate to="/"/>} />
+          </Routes>
+        </div>
         <Footer />
+        </AppContext.Provider>
       </div>
     </Router>
   );

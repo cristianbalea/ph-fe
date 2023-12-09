@@ -1,25 +1,22 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import Navbar from "react-bootstrap/Navbar";
 import Nav from "react-bootstrap/Nav";
 import Container from "react-bootstrap/Container";
-import logo from "../Assets/logo.png";
-import Button from "react-bootstrap/Button";
+import logo from "../Assets/logo2.png";
 import { Link } from "react-router-dom";
-import { CgGitFork } from "react-icons/cg";
 import { ImBlog } from "react-icons/im";
 import {
-  AiFillStar,
   AiOutlineHome,
   AiOutlineFundProjectionScreen,
   AiOutlineUser,
 } from "react-icons/ai";
-
+import { AppContext} from "../App";
 import { CgFileDocument } from "react-icons/cg";
 
 function NavBar() {
   const [expand, updateExpanded] = useState(false);
   const [navColour, updateNavbar] = useState(false);
-
+  const { isAuthenticated } = useContext(AppContext)
   function scrollHandler() {
     if (window.scrollY >= 20) {
       updateNavbar(true);
@@ -59,17 +56,17 @@ function NavBar() {
               </Nav.Link>
             </Nav.Item>
 
-            <Nav.Item>
+            {isAuthenticated && <Nav.Item>
               <Nav.Link
                 as={Link}
                 to="/about"
                 onClick={() => updateExpanded(false)}
               >
-                <AiOutlineUser style={{ marginBottom: "2px" }} /> About
+                <AiOutlineUser style={{ marginBottom: "2px" }} /> Learners
               </Nav.Link>
-            </Nav.Item>
+            </Nav.Item>}
 
-            <Nav.Item>
+            {isAuthenticated && <Nav.Item>
               <Nav.Link
                 as={Link}
                 to="/project"
@@ -78,19 +75,19 @@ function NavBar() {
                 <AiOutlineFundProjectionScreen
                   style={{ marginBottom: "2px" }}
                 />{" "}
-                Projects
+                Jobs
               </Nav.Link>
-            </Nav.Item>
+            </Nav.Item>}
 
-            <Nav.Item>
+            {isAuthenticated && <Nav.Item>
               <Nav.Link
                 as={Link}
                 to="/resume"
                 onClick={() => updateExpanded(false)}
               >
-                <CgFileDocument style={{ marginBottom: "2px" }} /> Resume
+                <CgFileDocument style={{ marginBottom: "2px" }} /> Add job
               </Nav.Link>
-            </Nav.Item>
+            </Nav.Item>}
 
             <Nav.Item>
               <Nav.Link
@@ -102,16 +99,17 @@ function NavBar() {
               </Nav.Link>
             </Nav.Item>
 
-            <Nav.Item className="fork-btn">
-              <Button
-                href="https://github.com/soumyajit4419/Portfolio"
-                target="_blank"
-                className="fork-btn-inner"
+            {!isAuthenticated && <Nav.Item>
+              <Nav.Link
+                  as={Link}
+                  to="/login"
+                  onClick={() => updateExpanded(false)}
               >
-                <CgGitFork style={{ fontSize: "1.2em" }} />{" "}
-                <AiFillStar style={{ fontSize: "1.1em" }} />
-              </Button>
-            </Nav.Item>
+                <CgFileDocument style={{ marginBottom: "2px" }} /> Login
+              </Nav.Link>
+            </Nav.Item>}
+
+
           </Nav>
         </Navbar.Collapse>
       </Container>

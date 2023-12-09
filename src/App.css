@@ -1,5 +1,12 @@
 .App {
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.content {
+  flex: 1;
 }
 
 .App-logo {
@@ -35,4 +42,12 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.login-label {
+  color: #007bff; /* Change the text color */
+  font-weight: bold; /* Make the text bold */
+  font-size: 24px; /* Increase the font size */
+  margin-bottom: 10px; /* Add some margin below the label */
+  /* Add any other styles as needed */
 }
