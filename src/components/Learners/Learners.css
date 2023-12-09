@@ -7,7 +7,6 @@
     transition: transform 0.3s ease; /* Smooth transition for hover effect */
     object-fit: cover; /* Adjust as needed */
     margin-right: 10px;
-
 }
 
 .learner-img .img-fluid:hover {
