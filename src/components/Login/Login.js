@@ -41,7 +41,7 @@ function Login() {
                     <br/> <br/>
                     <Form.Control
                         className="password-input"
-                        type="text"
+                        type="password"
                         placeholder="Password"
                         onChange={(event) => setPassword(event.target.value)}
                     />

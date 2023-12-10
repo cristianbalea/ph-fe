@@ -27,17 +27,35 @@ function Trainings() {
                         List of posted <strong className="purple">Trainings</strong>
                     </h1>
                     {
-                        trainings.map((tr) => (
-                            <Row style={{justifyContent: "center", paddingBottom: "10px"}}>
-                                <Col md={4} className="project-card">
-                                    <TrainingCard
-                                        trainingExternalId={tr.trainingExternalId}
-                                        description={tr.description}
-                                    />
-                                </Col>
-                            </Row>
+                        trainings.map((tr, index) => (
+                            index % 3 === 0 && (
+                                <Row key={index} style={{justifyContent: "center", paddingBottom: "10px"}}>
+                                    {[0, 1, 2].map((colIndex) => (
+                                        <Col key={colIndex} md={4} className="project-card">
+                                            {trainings[index + colIndex] && (
+                                                <TrainingCard
+                                                    trainingExternalId={trainings[index + colIndex].trainingExternalId}
+                                                    description={trainings[index + colIndex].description}
+                                                />
+                                            )}
+                                        </Col>
+                                    ))}
+                                </Row>
+                            )
                         ))
                     }
+                    {/*{*/}
+                    {/*    trainings.map((tr) => (*/}
+                    {/*        <Row style={{justifyContent: "center", paddingBottom: "10px"}}>*/}
+                    {/*            <Col md={4} className="project-card">*/}
+                    {/*                <TrainingCard*/}
+                    {/*                    trainingExternalId={tr.trainingExternalId}*/}
+                    {/*                    description={tr.description}*/}
+                    {/*                />*/}
+                    {/*            </Col>*/}
+                    {/*        </Row>*/}
+                    {/*    ))*/}
+                    {/*}*/}
                 </Container>
             </Container>
         </div>

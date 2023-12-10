@@ -2,12 +2,14 @@
 
 .username-input {
     position: relative;
+    min-width: 40vh;
     /*max-width: 40%; !* or any other value *!*/
     margin: 0 auto; /* Centering the element if needed */
 }
 
 .password-input {
     position: relative;
+    min-width: 40vh;
     /*max-width: 40%; !* or any other value *!*/
     margin: 0 auto; /* Centering the element if needed */
 }
