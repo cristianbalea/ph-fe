@@ -1,15 +1,17 @@
-import React from "react";
+import React, {useContext} from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import JobCards from "./JobCards";
 import Particle from "../Particle";
 import { useState, useEffect } from 'react'
 import useGetJobOffers from "../../Hooks/useGetJobOffers";
+import {AppContext} from "../../App";
 
 
 function Jobs() {
 
   const [jobs, setJobs] = useState([])
   const { getJobOffers } = useGetJobOffers()
+  const { role } = useContext(AppContext);
 
   useEffect(() => {
     const getJobs = async () => {
@@ -41,9 +43,17 @@ function Jobs() {
             <h1 className="project-heading">
               List of posted<strong className="purple"> Jobs </strong>
             </h1>
-            <p style={{ color: "white" }}>
-              All the jobs that your company created are displayed here.
-            </p>
+            {role === 'PEOPLE' &&
+              <p style={{ color: "white" }}>
+                All the jobs that will ease your life.
+              </p>
+            }
+            {role === 'COMPANY' &&
+                <p style={{ color: "white" }}>
+                  All the jobs that your company created are displayed here.
+                </p>
+            }
+
             {jobRows.map((row, rowIndex) => (
                 <Row key={rowIndex} style={{ justifyContent: "center", paddingBottom: "10px" }}>
                   {row.map((job, index) => (
