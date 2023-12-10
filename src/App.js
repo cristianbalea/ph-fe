@@ -19,6 +19,7 @@ import "./style.css";
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Trainings from "./components/Trainings/Trainings";
+import EnterpriseJobs from "./components/EnterpriseJobs/EnterpriseJobs";
 
 export const AppContext = createContext();
 
@@ -61,6 +62,7 @@ function App() {
             <Route path="/login" element = {<Login />} />
             <Route path="/" element={<Home />} />
             <Route path="/jobs" element={<Jobs />} />
+            <Route path="/our-jobs" element={<EnterpriseJobs />} />
             <Route path="/learners" element={<Learners />} />
             <Route path="/addjob" element={<AddJob />} />
             <Route path="/trainings" element={<Trainings />} />

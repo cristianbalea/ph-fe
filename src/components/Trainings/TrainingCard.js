@@ -1,6 +1,6 @@
 import React from "react";
 import Card from "react-bootstrap/Card";
-import { useContext } from "react";
+import {useContext} from "react";
 import {AppContext} from "../../App";
 import Button from "react-bootstrap/Button";
 import useRegisterForTraining from "../../Hooks/useRegisterForTraining";
@@ -8,8 +8,8 @@ import {useNavigate} from "react-router-dom";
 
 function TrainingCard(props) {
     const navigate = useNavigate();
-    const { register } = useRegisterForTraining();
-    const { userId } = useContext(AppContext);
+    const {register} = useRegisterForTraining();
+    const {userId} = useContext(AppContext);
 
     const registerForTraining = async () => {
         await register(userId, props.trainingExternalId);
@@ -21,13 +21,15 @@ function TrainingCard(props) {
         <Card className="quote-card-view">
             <Card.Body>
                 <blockquote className="blockquote mb-0">
-                    <p style={{ textAlign: "justify" }}>
-                        <span className="purple">{ props.description }</span>
+                    <p style={{
+                        textAlign: "justify",
+                    }}>
+                        <span className="purple">{props.description}</span>
                     </p>
                 </blockquote>
 
-                {"\n"}
-                {"\n"}
+                <br />
+                <br />
 
                 <Button
                     variant="primary"
