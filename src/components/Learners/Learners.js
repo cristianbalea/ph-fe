@@ -4,6 +4,9 @@ import Particle from "../Particle";
 import LearnerCard from "./LearnerCard";
 import './Learners.css'
 import johndoe from "../../Assets/johndoe.jpg"
+import dale1 from "../../Assets/dale1.png"
+import dale2 from "../../Assets/dale2.png"
+import dale3 from "../../Assets/dale3.png"
 import useLearners from "../../Hooks/useLearners";
 import {useEffect, useState} from 'react'
 
@@ -11,6 +14,7 @@ function Learners() {
 
     const [learners, setLearners] = useState([])
     const {getLearners} = useLearners()
+    const images = [johndoe, dale1, dale2, dale3]
 
     useEffect(() => {
         const getLearnersData = async () => {
@@ -30,7 +34,7 @@ function Learners() {
                     <h1 style={{fontSize: "2.1em", paddingBottom: "20px"}}>
                         Know the Talents that <strong className="purple">ARE FORMED</strong>
                     </h1>
-                    {learners.map((learner) => (
+                    {learners.map((learner, index) => (
                         <Row style={{justifyContent: "center", padding: "10px"}}>
                             <Col
                                 md={7}
@@ -47,7 +51,7 @@ function Learners() {
                                 style={{paddingTop: "20px", paddingBottom: "40px"}}
                                 className="about-img"
                             >
-                                <img src={johndoe} alt="about" className="learner-img"/>
+                                <img src={images[index % images.length]} alt="about" className="learner-img"/>
                             </Col>
                         </Row>
                     ))}
