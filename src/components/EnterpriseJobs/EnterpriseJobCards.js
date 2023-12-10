@@ -2,7 +2,7 @@ import React from "react";
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
 
-function JobCards(props) {
+function EnterpriseJobCards(props) {
     return (
         <Card className="job-card-view" style={{ display: 'flex', flexDirection: 'column', height: '100%' }}>
             {props.imgPath ? (
@@ -27,4 +27,4 @@ function JobCards(props) {
     );
 }
 
-export default JobCards;
+export default EnterpriseJobCards;
