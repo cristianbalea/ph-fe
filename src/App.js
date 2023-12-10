@@ -18,12 +18,17 @@ import ScrollToTop from "./components/ScrollToTop";
 import "./style.css";
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
+import Trainings from "./components/Trainings/Trainings";
 
 export const AppContext = createContext();
 
 function App() {
   const [load, updateLoad] = useState(true);
   const [isAuthenticated, setIsAuthenticated] = useState(false)
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [userId, setUserId] = useState('');
+  const [role, setRole] = useState('');
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -39,7 +44,15 @@ function App() {
       <div className="App" id={load ? "no-scroll" : "scroll"}>
         <AppContext.Provider  value = {{
           isAuthenticated,
-          setIsAuthenticated
+          setIsAuthenticated,
+          email,
+          setEmail,
+          password,
+          setPassword,
+          userId,
+          setUserId,
+          role,
+          setRole
         }}>
         <Navbar />
         <ScrollToTop />
@@ -50,6 +63,7 @@ function App() {
             <Route path="/jobs" element={<Jobs />} />
             <Route path="/learners" element={<Learners />} />
             <Route path="/addjob" element={<AddJob />} />
+            <Route path="/trainings" element={<Trainings />} />
             <Route path="*" element={<Navigate to="/"/>} />
           </Routes>
         </div>

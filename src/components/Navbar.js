@@ -17,6 +17,7 @@ function NavBar() {
   const [expand, updateExpanded] = useState(false);
   const [navColour, updateNavbar] = useState(false);
   const { isAuthenticated } = useContext(AppContext)
+  const { role } = useContext(AppContext);
   function scrollHandler() {
     if (window.scrollY >= 20) {
       updateNavbar(true);
@@ -56,7 +57,7 @@ function NavBar() {
               </Nav.Link>
             </Nav.Item>
 
-            {isAuthenticated && <Nav.Item>
+            {isAuthenticated && role === 'COMPANY' && <Nav.Item>
               <Nav.Link
                 as={Link}
                 to="/learners"
@@ -79,7 +80,7 @@ function NavBar() {
               </Nav.Link>
             </Nav.Item>}
 
-            {isAuthenticated && <Nav.Item>
+            {isAuthenticated && role === 'COMPANY' && <Nav.Item>
               <Nav.Link
                 as={Link}
                 to="/addjob"
@@ -89,15 +90,15 @@ function NavBar() {
               </Nav.Link>
             </Nav.Item>}
 
-            <Nav.Item>
-              <Nav.Link
-                href="https://soumyajitblogs.vercel.app/"
-                target="_blank"
-                rel="noreferrer"
-              >
-                <ImBlog style={{ marginBottom: "2px" }} /> Blogs
-              </Nav.Link>
-            </Nav.Item>
+            {/*<Nav.Item>*/}
+            {/*  <Nav.Link*/}
+            {/*    href="https://soumyajitblogs.vercel.app/"*/}
+            {/*    target="_blank"*/}
+            {/*    rel="noreferrer"*/}
+            {/*  >*/}
+            {/*    <ImBlog style={{ marginBottom: "2px" }} /> Blogs*/}
+            {/*  </Nav.Link>*/}
+            {/*</Nav.Item>*/}
 
             {!isAuthenticated && <Nav.Item>
               <Nav.Link
@@ -106,6 +107,16 @@ function NavBar() {
                   onClick={() => updateExpanded(false)}
               >
                 <CgFileDocument style={{ marginBottom: "2px" }} /> Login
+              </Nav.Link>
+            </Nav.Item>}
+
+            {isAuthenticated && role === 'PEOPLE' && <Nav.Item>
+              <Nav.Link
+                  as={Link}
+                  to="/trainings"
+                  onClick={() => updateExpanded(false)}
+              >
+                <AiOutlineUser style={{ marginBottom: "2px" }} /> Trainings
               </Nav.Link>
             </Nav.Item>}
 
