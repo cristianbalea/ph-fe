@@ -5,19 +5,22 @@ import Particle from "../Particle";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import { AppContext } from "../../App";
+import useLogin from "../../Hooks/useLogin";
 
 function Login() {
-    const [username, setUsername] = useState('')
-    const [password, setPassword] = useState('')
     const navigate = useNavigate()
-    const { isAuthenticated , setIsAuthenticated } = useContext(AppContext)
+    const { login } = useLogin();
+    const { isAuthenticated , setIsAuthenticated, email, setEmail, password, setPassword, userId, setUserId, role, setRole } = useContext(AppContext)
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        if (username && password) {
+        if (email && password) {
             setIsAuthenticated(true);
             console.log(isAuthenticated);
-            navigate("/home")
+            const response = await login(email, password);
+            setUserId(response.userExternalId);
+            setRole(response.role)
+            navigate("/home");
         }
     }
 
@@ -33,7 +36,7 @@ function Login() {
                         className="username-input"
                         type="text"
                         placeholder="Username"
-                        onChange={(event) => setUsername(event.target.value)}
+                        onChange={(event) => setEmail(event.target.value)}
                     />
                     <br/> <br/>
                     <Form.Control
