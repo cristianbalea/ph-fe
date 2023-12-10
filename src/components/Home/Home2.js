@@ -27,7 +27,7 @@ function Home2() {
                             for individuals with disabilities, providing comprehensive training to build your career.
 
                             <br/><br/><br/><br/>
-                            Join our events to hear <strong className="purple">PEOPLE</strong>'s stories
+                            Join our events to hear <strong className="purple">PEOPLE</strong>'s stories.
                         </p>
                     </Col>
                     <Col md={4} className="myAvtar">

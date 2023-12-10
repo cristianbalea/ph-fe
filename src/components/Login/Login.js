@@ -1,16 +1,31 @@
-import React, {useState, useContext } from 'react';
-import { useNavigate } from "react-router-dom";
+import React, {useState, useContext} from 'react';
+import {useNavigate} from "react-router-dom";
 import './Login.css'
 import Particle from "../Particle";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
-import { AppContext } from "../../App";
+import {AppContext} from "../../App";
 import useLogin from "../../Hooks/useLogin";
 
 function Login() {
     const navigate = useNavigate()
-    const { login } = useLogin();
-    const { isAuthenticated , setIsAuthenticated, email, setEmail, password, setPassword, userId, setUserId, role, setRole } = useContext(AppContext)
+    const {login} = useLogin();
+    const {
+        isAuthenticated,
+        setIsAuthenticated,
+        email,
+        setEmail,
+        password,
+        setPassword,
+        userId,
+        setUserId,
+        role,
+        setRole,
+        firstname,
+        setFirstname,
+        lastname,
+        setLastname
+    } = useContext(AppContext)
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -19,7 +34,9 @@ function Login() {
             console.log(isAuthenticated);
             const response = await login(email, password);
             setUserId(response.userExternalId);
-            setRole(response.role)
+            setRole(response.role);
+            setFirstname(response.firstname);
+            setLastname(response.lastname);
             navigate("/home");
         }
     }
@@ -45,7 +62,7 @@ function Login() {
                         placeholder="Password"
                         onChange={(event) => setPassword(event.target.value)}
                     />
-                    <br /> <br />
+                    <br/> <br/>
                     <Button
                         className="submit-button"
                         variant="secondary"

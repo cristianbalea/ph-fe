@@ -30,6 +30,8 @@ function App() {
   const [password, setPassword] = useState('');
   const [userId, setUserId] = useState('');
   const [role, setRole] = useState('');
+  const [firstname, setFirstname] = useState('');
+  const [lastname, setLastname] = useState('');
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -53,7 +55,11 @@ function App() {
           userId,
           setUserId,
           role,
-          setRole
+          setRole,
+          firstname,
+          setFirstname,
+          lastname,
+          setLastname
         }}>
         <Navbar />
         <ScrollToTop />
