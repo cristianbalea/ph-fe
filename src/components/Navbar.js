@@ -3,8 +3,8 @@ import Navbar from "react-bootstrap/Navbar";
 import Nav from "react-bootstrap/Nav";
 import Container from "react-bootstrap/Container";
 import logo from "../Assets/logo-mare.png";
-import { Link } from "react-router-dom";
-import { ImBlog } from "react-icons/im";
+import {Link, useNavigate} from "react-router-dom";
+
 import {
   AiOutlineHome,
   AiOutlineFundProjectionScreen,
@@ -14,9 +14,10 @@ import { AppContext} from "../App";
 import { CgFileDocument } from "react-icons/cg";
 
 function NavBar() {
+  const navigate = useNavigate();
   const [expand, updateExpanded] = useState(false);
   const [navColour, updateNavbar] = useState(false);
-  let { isAuthenticated } = useContext(AppContext)
+  const { isAuthenticated, setIsAuthenticated } = useContext(AppContext);
   const { role } = useContext(AppContext);
   function scrollHandler() {
     if (window.scrollY >= 20) {
@@ -103,15 +104,15 @@ function NavBar() {
               </Nav.Link>
             </Nav.Item>}
 
-            {/*<Nav.Item>*/}
-            {/*  <Nav.Link*/}
-            {/*    href="https://soumyajitblogs.vercel.app/"*/}
-            {/*    target="_blank"*/}
-            {/*    rel="noreferrer"*/}
-            {/*  >*/}
-            {/*    <ImBlog style={{ marginBottom: "2px" }} /> Blogs*/}
-            {/*  </Nav.Link>*/}
-            {/*</Nav.Item>*/}
+            {isAuthenticated && role === 'PEOPLE' && <Nav.Item>
+              <Nav.Link
+                  as={Link}
+                  to="/trainings"
+                  onClick={() => updateExpanded(false)}
+              >
+                <AiOutlineUser style={{ marginBottom: "2px" }} /> Trainings
+              </Nav.Link>
+            </Nav.Item>}
 
             {!isAuthenticated && <Nav.Item>
               <Nav.Link
@@ -123,29 +124,17 @@ function NavBar() {
               </Nav.Link>
             </Nav.Item>}
 
-            {isAuthenticated && role === 'PEOPLE' && <Nav.Item>
-              <Nav.Link
-                  as={Link}
-                  to="/trainings"
-                  onClick={() => updateExpanded(false)}
-              >
-                <AiOutlineUser style={{ marginBottom: "2px" }} /> Trainings
-              </Nav.Link>
-            </Nav.Item>}
-
             {isAuthenticated && <Nav.Item>
               <Nav.Link
-                as={Link}
-                to="/home"
-                onClick={() => {
-                  isAuthenticated = false;
-                  updateExpanded(false);
-                }}
+                  as={Link}
+                  to="/home"
+                  onClick={() => {
+                    setIsAuthenticated(false);
+                  }}
               >
-
+                <CgFileDocument style={{ marginBottom: "2px" }} /> Logout
               </Nav.Link>
             </Nav.Item>}
-
 
           </Nav>
         </Navbar.Collapse>

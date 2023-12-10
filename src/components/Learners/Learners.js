@@ -44,7 +44,7 @@ function Learners() {
                                     paddingBottom: "50px",
                                 }}
                             >
-                                <LearnerCard surname={learner.firstname} name={learner.lastname} course="CourseX"/>
+                                <LearnerCard surname={learner.firstname} name={learner.lastname} course="Course NO.121"/>
                             </Col>
                             <Col
                                 md={5}
