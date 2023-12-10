@@ -16,7 +16,7 @@ import { CgFileDocument } from "react-icons/cg";
 function NavBar() {
   const [expand, updateExpanded] = useState(false);
   const [navColour, updateNavbar] = useState(false);
-  const { isAuthenticated } = useContext(AppContext)
+  let { isAuthenticated } = useContext(AppContext)
   const { role } = useContext(AppContext);
   function scrollHandler() {
     if (window.scrollY >= 20) {
@@ -67,7 +67,7 @@ function NavBar() {
               </Nav.Link>
             </Nav.Item>}
 
-            {isAuthenticated && <Nav.Item>
+            {isAuthenticated && role === 'PEOPLE' && <Nav.Item>
               <Nav.Link
                 as={Link}
                 to="/jobs"
@@ -75,6 +75,19 @@ function NavBar() {
               >
                 <AiOutlineFundProjectionScreen
                   style={{ marginBottom: "2px" }}
+                />{" "}
+                Jobs
+              </Nav.Link>
+            </Nav.Item>}
+
+            {isAuthenticated && role === 'COMPANY' && <Nav.Item>
+              <Nav.Link
+                  as={Link}
+                  to="/our-jobs"
+                  onClick={() => updateExpanded(false)}
+              >
+                <AiOutlineFundProjectionScreen
+                    style={{ marginBottom: "2px" }}
                 />{" "}
                 Jobs
               </Nav.Link>
@@ -117,6 +130,19 @@ function NavBar() {
                   onClick={() => updateExpanded(false)}
               >
                 <AiOutlineUser style={{ marginBottom: "2px" }} /> Trainings
+              </Nav.Link>
+            </Nav.Item>}
+
+            {isAuthenticated && <Nav.Item>
+              <Nav.Link
+                as={Link}
+                to="/home"
+                onClick={() => {
+                  isAuthenticated = false;
+                  updateExpanded(false);
+                }}
+              >
+
               </Nav.Link>
             </Nav.Item>}
 
